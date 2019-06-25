@@ -4,6 +4,9 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       app = express();
 
+const hostname = 'localhost',
+      port = 3000;
+
 var rawBodySaver = function (req, res, buf, encoding) {
     if (buf && buf.length) {
         req.rawBody = buf.toString(encoding || 'utf8');
@@ -161,4 +164,6 @@ app.all('/', (req, res) => {
     res.json(obj);
 });
 
-app.listen(8080);
+app.listen(port, hostname, () => {
+    console.log('Server running at http://' + hostname + ':' + port + '/');
+});
