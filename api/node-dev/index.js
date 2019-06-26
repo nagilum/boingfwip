@@ -18,6 +18,29 @@ app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
 app.use(bodyParser.raw({ verify: rawBodySaver, type: '*/*' }));
 
 app.all('/', (req, res) => {
+    // Let's exclude some Cloudflare headers.
+    let excludeHeaders = [
+        'cf-ipcountry',
+        'x-forwarded-for',
+        'cf-ray',
+        'x-forwarded-proto,',
+        'cf-visitor',
+        'if-none-match',
+        'cf-connecting-ip',
+        'cdn-loop'
+    ];
+
+    let headers = {};
+
+    for (let key in req.headers) {
+        if (excludeHeaders.includes(key)) {
+            continue;
+        }
+
+        headers[key] = req.headers[key];
+    }
+
+    // Compile the return object.
     let obj = {
         http: {
             version: req.httpVersion,
@@ -26,15 +49,16 @@ app.all('/', (req, res) => {
             method: req.method
         },
         connection: {
-            remoteAddress: req.connection.remoteAddress
+            remoteAddress: req.headers['cf-connecting-ip']
         },
-        headers: req.headers,
+        headers: headers,
         query: req.query,
         body: {
             raw: null
         }
     };
 
+    // Include and analyze the request body.
     try {
         if (req.rawBody) {
             obj.body.raw = req.rawBody;
