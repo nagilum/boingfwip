@@ -18,6 +18,10 @@ app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
 app.use(bodyParser.raw({ verify: rawBodySaver, type: '*/*' }));
 
 app.all('/', (req, res) => {
+    let origin = req.headers['origin']
+        ? req.headers['origin']
+        : '*';
+        
     // Let's exclude some Cloudflare headers.
     let excludeHeaders = [
         'cf-ipcountry',
@@ -180,7 +184,10 @@ app.all('/', (req, res) => {
         // Do nothing.
     }
 
-    res.json(obj);
+    res
+        .set('Access-Control-Allow-Origin', origin)
+        .set('Access-Control-Allow-Headers', 'Content-Type')
+        .json(obj);
 });
 
 app.listen(port, hostname, () => {
