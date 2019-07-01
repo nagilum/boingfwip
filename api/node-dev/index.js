@@ -21,13 +21,13 @@ app.all('/', (req, res) => {
     let origin = req.headers['origin']
         ? req.headers['origin']
         : '*';
-        
+
     // Let's exclude some Cloudflare headers.
     let excludeHeaders = [
         'cf-ipcountry',
         'x-forwarded-for',
         'cf-ray',
-        'x-forwarded-proto,',
+        'x-forwarded-proto',
         'cf-visitor',
         'if-none-match',
         'cf-connecting-ip',

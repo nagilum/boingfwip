@@ -31,6 +31,32 @@ body {
         }
     }
 
+    pre {
+        background-color: #eee;
+        overflow: auto;
+        padding: 5px;
+
+        span {
+            word-wrap: break-word;
+
+            &.default {
+                color: #000;
+            }
+
+            &.key {
+                color: #099;
+            }
+
+            &.number {
+                color: #600;
+            }
+
+            &.string {
+                color: #660;
+            }
+        }
+    }
+
     header {
         background-color: #333;
         color: #fff;

@@ -23,7 +23,18 @@
         <article>
             <h1 id="howtouse">How To Use</h1>
             <p>
-                It's pretty simple. You just perform any request towards <code>https://api.boingfwip.net/</code> with any HTTP method and it will return a JSON with your request info/headers/etc and payload.
+                It's pretty simple. You just perform a request towards <code>https://api.boingfwip.net/</code> with any HTTP method and it will return a JSON with your request info/headers/etc and payload.
+            </p>
+
+            <h1 id="example">Example</h1>
+            <p>
+                If you do a <code>GET</code> in your browser towards <code>https://api.boingfwip.net/</code>, you should get something like this in return.
+            </p>
+            <pre class="json-beautify">{"http":{"version":"1.1","major":1,"minor":1,"method":"GET"},"connection":{"remoteAddress":"193.90.234.18"},"headers":{"connection":"upgrade","host":"api.boingfwip.net","accept-encoding":"gzip","x-forwarded-proto":"https","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36","dnt":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-language":"en-GB,en;q=0.9,en-US;q=0.8,nb;q=0.7,sv;q=0.6,de;q=0.5","cookie":"__cfduid=d2f720d3274f5494468c3672fac9ff15f1561620649"},"query":{},"body":{"raw":null}}</pre>
+
+            <h1 id="tryit">Try It</h1>
+            <p>
+                <button>Try it</button> View results in console.
             </p>
 
             <h1 id="whatswiththename">What's With the Name?</h1>
@@ -46,5 +57,7 @@
                 &copy; Stian Hanger, source code available over at <a href="https://github.com/nagilum/boingfwip">https://github.com/nagilum/boingfwip</a>. Website icon by <a href="http://www.iconarchive.com/artist/iconsmind.html">IconsMind</a>.
             </p>
         </footer>
+
+        {{ js }}
     </body>
 </html>
