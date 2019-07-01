@@ -40,7 +40,6 @@ let syntaxHighlight = (json) => {
  * @returns {Promise} Fetch API promise.
  */
 let tryItExecute = (e) => {
-    console.log('');
     console.log('Boingfwip Test');
     console.log('==============');
     console.log('GET https://api.boingfwip.net/');
@@ -61,7 +60,13 @@ let tryItExecute = (e) => {
         })
         .then((data) => {
             console.log('Response from API:');
-            console.log('Response Body', data);
+            console.log(data);
+
+            let pre = document.querySelector('pre#try-it-output'),
+                html = syntaxHighlight(data)
+                    .replace(new RegExp(':', 'g'), '<span class="default">:</span>');
+
+            pre.innerHTML = html;
         })
         .catch((err) => {
             console.log('Error while executing fetch()');
