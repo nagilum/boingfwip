@@ -1,1 +1,4 @@
 api/node-dev/node_modules/
+apiservernetcore/.vs/
+apiservernetcore/apiservernetcore/bin/
+apiservernetcore/apiservernetcore/obj/
