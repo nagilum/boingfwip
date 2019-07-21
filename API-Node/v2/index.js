@@ -21,6 +21,7 @@ exports.query = (req, res) => {
     }
 
     // Get headers.
+    let excludeHeaders = [];
     let headers = {};
 
     for (let key in req.headers) {
