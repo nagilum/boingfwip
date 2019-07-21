@@ -73,8 +73,8 @@ exports.query = (req, res) => {
                 minor: req.httpVersionMinor
             },
             method: req.method,
-            ip: req.connection.remoteAddress ||
-                req.headers['x-forwarded-for']                
+            ip: req.headers['x-forwarded-for'] ||
+                req.connection.remoteAddress
         },
         headers: headers,
         query: {},
