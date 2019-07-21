@@ -7,6 +7,8 @@
  * @returns {Object} Compiled JSON object.
  */
 exports.query = (req, res) => {
+    // TODO: Check body size and 413 if exceeded!
+
     let origin = req.headers['origin']
         ? req.headers['origin']
         : '*';
@@ -21,11 +23,41 @@ exports.query = (req, res) => {
     }
 
     // Get headers.
-    let excludeHeaders = [];
+    let excludeHeaders = [
+        'forwarded',
+        'function-execution-id',
+        'x-appengine-*',
+        'x-cloud-trace-context',
+        'x-forwarded-for',
+        'x-forwarded-proto'
+    ];
+
     let headers = {};
 
     for (let key in req.headers) {
         if (excludeHeaders.includes(key)) {
+            continue;
+        }
+
+        let skip = false;
+
+        excludeHeaders.forEach((eh) => {
+            if (skip) {
+                return;
+            }
+
+            if (!eh.endsWith('*')) {
+                return;
+            }
+
+            let eha = eh.replace('*', '');
+
+            if (key.startsWith(eha)) {
+                skip = true;
+            }
+        });
+
+        if (skip) {
             continue;
         }
 
@@ -34,27 +66,51 @@ exports.query = (req, res) => {
 
     // Compile the return object.
     let obj = {
-        http: {
-            version: req.httpVersion,
-            major: req.httpVersionMajor,
-            minor: req.httpVersionMinor,
-            method: req.method
-        },
-        connection: {
-            remoteAddress: req.headers['x-forwarded-for'] ||
-                           req.connection.remoteAddress
+        request: {
+            http: {
+                version: req.httpVersion,
+                major: req.httpVersionMajor,
+                minor: req.httpVersionMinor
+            },
+            method: req.method,
+            ip: req.connection.remoteAddress ||
+                req.headers['x-forwarded-for']                
         },
         headers: headers,
-        query: req.query,
-        body: {
-            raw: null
-        }
+        query: {},
+        cookies: {},
+        body: {}
     };
+
+    // Query parameters.
+    if (req.query) {
+        obj.query = req.query;
+    }
+
+    // Cookies.
+    if (req.cookies) {
+        obj.cookies = req.cookies;
+    }
+    else if (req.headers.cookie) {
+        let cookies = req.headers.cookie.split(';');
+
+        cookies.forEach((ck) => {
+            let cookie = ck.trim().split('=');
+
+            if (!cookie || cookie.length !== 2) {
+                return;
+            }
+
+            obj.cookies[cookie[0]] = cookie[1];
+        });
+    }
 
     // Include and analyze the request body.
     try {
         if (req.rawBody) {
-            obj.body.raw = req.rawBody.toString();
+            obj.body = {
+                raw: req.rawBody.toString()
+            };
     
             let ct = req.headers['content-type'],
                 boundary;
