@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'https://api.boingfwip.net/';
+const url = 'https://europe-west2-boingfwip-api.cloudfunctions.net/query';
 
 /**
  * Syntax highlight the JSON output.
