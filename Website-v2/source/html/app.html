@@ -68,13 +68,13 @@
 
                 <h2 id="responsebodyexplanation">Response Body Explanation</h2>
                 <ul>
-                    <li><code>input</code> contains the HTTP method as well as info about the HTTP version used.</li>
-                    <li><code>connection</code> contains the remote IP (your IP) that was used in the connection.</li>
+                    <li><code>request</code> contains the your IP, HTTP method as well as info about the HTTP version used.</li>
                     <li><code>headers</code> contains the headers you submitted.</li>
                     <li><code>query</code> contains any query parameters you submit.</li>
+                    <li><code>cookies</code> contains the cookies you submitted.</li>
                     <li><code>body</code> contains the body payload, both raw and analyzed (if possible).</li>
                 </ul>
-                <pre class="json-beautify">{"http":{"version":"1.1","major":1,"minor":1,"method":"GET"},"connection":{"remoteAddress":"46.249.237.214"},"headers":{"connection":"upgrade","host":"boingfwip.net","accept-encoding":"gzip","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36","dnt":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-language":"en-GB,en;q=0.9,en-US;q=0.8,nb;q=0.7,sv;q=0.6,de;q=0.5","cookie":"__cfduid=d48d496b53f4502872863e0a343ce7cce1561572418"},"query":{},"body":{"raw":null}}</pre>
+                <pre class="json-beautify">{"request":{"http":{"version":"1.1","major":1,"minor":1},"method":"GET","ip":"46.249.237.214"},"headers":{"host":"europe-west2-boingfwip-api.cloudfunctions.net","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-encoding":"gzip, deflate, br","accept-language":"en-GB,en;q=0.9,en-US;q=0.8,nb;q=0.7,sv;q=0.6,de;q=0.5","dnt":"1","if-none-match":"W/\"2b2-+DYr4y3ZUkOKr7qj0acDZaGTuJI\"","upgrade-insecure-requests":"1","connection":"close"},"query":{},"cookies":{},"body":{}}</pre>
 
                 <h2 id="tryit">Try It</h2>
                 <p>
