@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Boingfwip, Request Echo</title>
+
+        <meta property="og:title" content="Boingfwip, Request Echo">
+        <meta property="og:description" content="API that gives you a JSON echo of your request.">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Boingfwip, Request Echo">
+        <meta property="og:url" content="https://boingfwip.net/">
+
+        <meta http-equiv="keywords" content="boingfwip request echo json">
+        <meta http-equiv="description" content="API that gives you a JSON echo of your request.">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+
+        <style type="text/css">*{box-sizing:border-box}body{background-color:#fff;color:#212121;font-family:'Open Sans',sans;font-size:16px;font-weight:400;margin:0;padding:0}body a{color:#1a73e8;text-decoration:none}body a:hover{text-decoration:underline}body a.fork-me{background-image:url('forkme_right_red.png');background-repeat:no-repeat;background-position:top right;background-size:100%;height:149px;position:absolute;right:0;top:0;width:149px;z-index:20}@media (max-width:1400px){body a.fork-me{height:112px;width:112px}}body h1,body h2,body h3,body h4{font-weight:300}body strong{font-weight:600}body header{background-color:#3c4043;color:#fff;font-size:14px;margin:0;padding:50px 0;top:0}body header h1{font-size:50px;line-height:50px;margin:0 auto;padding:0;width:1400px}@media (max-width:1450px){body header h1{padding-left:25px;padding-right:25px;width:100%}}body header summary{margin:0 auto;padding:10px 0 0;width:1400px}body header summary a{color:#bdc1c6}body header summary a:hover{color:#fff}@media (max-width:1450px){body header summary{padding-left:25px;padding-right:25px;width:100%}}body wrapper{display:block;margin:0 auto;overflow-x:hidden;overflow-y:auto;padding:50px 0;width:1400px}body wrapper article{float:left;left:auto;overflow-x:hidden;overflow-y:auto;padding:0 50px 0 0;position:relative;top:0;width:1200px}body wrapper article h1{font-size:40px;font-weight:400;line-height:40px;margin:0;padding:0}body wrapper article h2{font-size:30px;line-height:30px;margin:50px 0 0;padding:0}body wrapper article button{padding:10px}@media (max-width:500px){body wrapper article button{width:100%}}body wrapper article blockquote{border-left:solid 3px #3c4043;font-style:italic;margin:0;padding:0 0 0 10px}body wrapper article code{background-color:#f7f7f7;display:inline-block;font-family:'Roboto Mono',monospace;font-size:14px;font-weight:500;padding:1px 4px}body wrapper article pre{background-color:#f7f7f7;display:inline-block;font-family:'Roboto Mono',monospace;font-size:14px;font-weight:500;overflow-x:scroll;padding:8px;width:100%}body wrapper article pre span.default{color:#000}body wrapper article pre span.key{color:#099}body wrapper article pre span.number{color:#600}body wrapper article pre span.string{color:#660}body wrapper article pre.loading{background-image:url('ajax-loader.gif');background-position:center;background-repeat:no-repeat;color:transparent;height:100px}body wrapper article pre.loading span{display:none}body wrapper article div.table-wrapper{overflow-x:scroll;width:100%}body wrapper article table{min-width:900px;margin:0;overflow-x:scroll;padding:0;width:100%}body wrapper article table thead{margin:0;padding:0}body wrapper article table thead tr{margin:0;padding:0}body wrapper article table thead tr th{margin:0;padding:0;text-align:left;width:150px}body wrapper article table thead tr th:nth-child(4){width:300px}body wrapper article table thead tr th:nth-child(5){width:auto}body wrapper article table thead tr th.center{text-align:center}body wrapper article table tbody{margin:0;padding:0}body wrapper article table tbody tr{margin:0;padding:0}body wrapper article table tbody tr td{margin:0;padding:0;width:150px}body wrapper article table tbody tr td:nth-child(4){width:300px}body wrapper article table tbody tr td:nth-child(5){width:auto}body wrapper article table tbody tr td.center{text-align:center}body wrapper article table tbody tr td.auto-width{width:auto}body wrapper article table tbody tr td input[type=number],body wrapper article table tbody tr td select{padding:3px;width:200px}body wrapper article table tbody tr:nth-child(odd) td{background-color:#f7f7f7}body wrapper article table tbody tr:hover td{background-color:#f7f7f7}body wrapper article table.auto-width{min-width:auto}body wrapper article table.auto-width thead tr th{width:auto !important}@media (max-width:1450px){body wrapper article{padding-left:25px;width:824px}}@media (max-width:1024px){body wrapper article{padding-right:25px;width:100%}}body wrapper nav{border-left:4px solid #039be5;float:right;font-size:13px;left:auto;line-height:16px;margin:0;overflow-x:hidden;overflow-y:auto;padding:3px 0 0 12px;position:relative;top:0;width:200px}body wrapper nav strong{color:#757575;font-weight:600}body wrapper nav ul{list-style:none;margin:0;padding:3px 0 0}body wrapper nav ul li{margin:0;padding:3px 0}body wrapper nav ul li a{color:#212121}body wrapper nav ul li a:hover{color:#1a73e8}@media (max-width:1024px){body wrapper nav{display:none}}@media (max-width:1400px){body wrapper{width:100%}}body footer{background-color:#3c4043;color:#fff;font-size:14px;margin:0;padding:50px 0}body footer a{color:#bdc1c6}body footer a:hover{color:#fff}body footer p{margin:0 auto;padding:5px 0;width:1400px}@media (max-width:1450px){body footer p{padding-left:25px;padding-right:25px;width:100%}}</style>
+    </head>
+    <body>
+        <header>
+            <h1>Boingfwip</h1>
+            <summary>
+                API that gives you a JSON "echo" of your request.
+            </summary>
+        </header>
+
+        <wrapper>
+            <article>
+                <h1 id="overview">Boingfwip</h1>
+                <p>
+                    Boingfwip is a simple API that lets you do a request and get all the info back as a JSON.
+                </p>
+
+                <h2 id="whatswiththename">What's With the Name?</h2>
+                <p>
+                    I'm terrible at naming my projects and went through several rounds in my head with different stuff.
+                    Ended up with Boingfwip, because reasons..
+                </p>
+                <blockquote>
+                    A phrase used by the character Ted and his band on the popular television series "scrubs".
+                    This is a short hand version of "I'm rubber and you're glue" implying someone's insult bounces off of you, creating a "boing" sound and is thrown back through the air making a "fwip" sound.
+                    Boing fwip is often accompanied by hand movements implying said action.<br>
+                    <br>
+                    person 1: You're a jerkface<br>
+                    person 2: Boing fwip!<br>
+                    jerk face (formerly known as person 1): Oh snap<br>
+                    <br>
+                    Source: <a href="https://www.urbandictionary.com/define.php?term=boingfwip">urbandictionary.com</a>
+                </blockquote>
+
+                <h2 id="theprocess">The Process</h2>
+                <p>
+                    The API endpoint is <code>XXX</code> and should answer to almost any HTTP method, but at least the normal ones.
+                </p>
+                <p>
+                    You do a request towards the endpoint and you'll get a JSON in return.
+                    It's that simple.
+                    Everything you send in, from headers, to query parameters, to body content should be reflected in the JSON you get back.
+                </p>
+
+                <h2 id="limitations">Limitations</h2>
+                <p>
+                    The only limitations of the API is that the size of the submitted body payload.
+                    The limit is set to 10 MB.
+                </p>
+
+                <h2 id="responsebodyexplanation">Response Body Explanation</h2>
+                <ul>
+                    <li><code>input</code> contains the HTTP method as well as info about the HTTP version used.</li>
+                    <li><code>connection</code> contains the remote IP (your IP) that was used in the connection.</li>
+                    <li><code>headers</code> contains the headers you submitted.</li>
+                    <li><code>query</code> contains any query parameters you submit.</li>
+                    <li><code>body</code> contains the body payload, both raw and analyzed (if possible).</li>
+                </ul>
+                <pre class="json-beautify">{"http":{"version":"1.1","major":1,"minor":1,"method":"GET"},"connection":{"remoteAddress":"46.249.237.214"},"headers":{"connection":"upgrade","host":"boingfwip.net","accept-encoding":"gzip","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36","dnt":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-language":"en-GB,en;q=0.9,en-US;q=0.8,nb;q=0.7,sv;q=0.6,de;q=0.5","cookie":"__cfduid=d48d496b53f4502872863e0a343ce7cce1561572418"},"query":{},"body":{"raw":null}}</pre>
+
+                <h2 id="tryit">Try It</h2>
+                <p>
+                    <button id="try-it-execute">Call API</button>
+                </p>
+                <pre id="try-it-output" class="json-beautify">
+                    {
+                        "message": "Click the 'Call API' button to try it out!"
+                    }
+                </pre>
+            </article>
+            <nav>
+                <strong>Contents</strong>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#whatswiththename">What's With the Name?</a></li>
+                    <li><a href="#theprocess">The Process</a></li>
+                    <li><a href="#limitations">Limitations</a></li>
+                    <li><a href="#responsebodyexplanation">Response Body Explanation</a></li>
+                    <li><a href="#tryit">Try It</a></li>
+                </ul>
+            </nav>
+        </wrapper>
+
+        <footer>
+            <p>
+                &copy; 2019 Stian Hanger
+            </p>
+            <p>
+                Source code available over at <a href="https://github.com/nagilum/boingfwip">GitHub</a>
+            </p>
+            <p>
+                Website favicon by <a href="http://www.iconarchive.com/artist/iconsmind.html">IconsMind</a>
+            </p>
+        </footer>
+
+        <a href="https://github.com/nagilum/boingfwip" class="fork-me"></a>
+
+        <script>﻿'use strict';const url='https://api.boingfwip.net/';let syntaxHighlight=(json)=>{if(typeof json!='string'){json=JSON.stringify(json,undefined,2);}
+json=json.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(match){let cls='number';if(/^"/.test(match)){if(/:$/.test(match)){cls='key';}
+else{cls='string';}}
+else if(/true|false/.test(match)){cls='boolean';}
+else if(/null/.test(match)){cls='null';}
+return'<span class="'+cls+'">'+match+'</span>';});};let tryItExecute=(e)=>{let pre=document.querySelector('pre#try-it-output');pre.classList.add('loading');return fetch(url+'?foo=bar',{method:'POST',mode:'cors',cache:'no-cache',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{test1:"ABC",test2:123,test3:true},message:"This should come back as JSON"})}).then((res)=>{if(res.status!==200){throw new Error(res.statusText);}
+return res.json();}).then((json)=>{pre.innerHTML=syntaxHighlight(json).replace(new RegExp(':','g'),'<span class="default">:</span>');pre.classList.remove('loading');}).catch((err)=>{console.log('err',err);pre.classList.remove('loading');alert('Error. Check console!');});};(()=>{document.querySelectorAll('.json-beautify').forEach((pre)=>{pre.innerHTML=syntaxHighlight(JSON.parse(pre.innerText)).replace(new RegExp(':','g'),'<span class="default">:</span>');});document.querySelector('button#try-it-execute').addEventListener('click',tryItExecute);})();</script>
+    </body>
+</html>

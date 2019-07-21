@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Boingfwip, Request Echo</title>
+
+        <meta property="og:title" content="Boingfwip, Request Echo">
+        <meta property="og:description" content="API that gives you a JSON echo of your request.">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Boingfwip, Request Echo">
+        <meta property="og:url" content="https://boingfwip.net/">
+
+        <meta http-equiv="keywords" content="boingfwip request echo json">
+        <meta http-equiv="description" content="API that gives you a JSON echo of your request.">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+
+        {{ css }}
+    </head>
+    <body>
+        <header>
+            <h1>Boingfwip</h1>
+            <summary>
+                API that gives you a JSON "echo" of your request.
+            </summary>
+        </header>
+
+        <wrapper>
+            <article>
+                <h1 id="overview">Boingfwip</h1>
+                <p>
+                    Boingfwip is a simple API that lets you do a request and get all the info back as a JSON.
+                </p>
+
+                <h2 id="whatswiththename">What's With the Name?</h2>
+                <p>
+                    I'm terrible at naming my projects and went through several rounds in my head with different stuff.
+                    Ended up with Boingfwip, because reasons..
+                </p>
+                <blockquote>
+                    A phrase used by the character Ted and his band on the popular television series "scrubs".
+                    This is a short hand version of "I'm rubber and you're glue" implying someone's insult bounces off of you, creating a "boing" sound and is thrown back through the air making a "fwip" sound.
+                    Boing fwip is often accompanied by hand movements implying said action.<br>
+                    <br>
+                    person 1: You're a jerkface<br>
+                    person 2: Boing fwip!<br>
+                    jerk face (formerly known as person 1): Oh snap<br>
+                    <br>
+                    Source: <a href="https://www.urbandictionary.com/define.php?term=boingfwip">urbandictionary.com</a>
+                </blockquote>
+
+                <h2 id="theprocess">The Process</h2>
+                <p>
+                    The API endpoint is <code>XXX</code> and should answer to almost any HTTP method, but at least the normal ones.
+                </p>
+                <p>
+                    You do a request towards the endpoint and you'll get a JSON in return.
+                    It's that simple.
+                    Everything you send in, from headers, to query parameters, to body content should be reflected in the JSON you get back.
+                </p>
+
+                <h2 id="limitations">Limitations</h2>
+                <p>
+                    The only limitations of the API is that the size of the submitted body payload.
+                    The limit is set to 10 MB.
+                </p>
+
+                <h2 id="responsebodyexplanation">Response Body Explanation</h2>
+                <ul>
+                    <li><code>input</code> contains the HTTP method as well as info about the HTTP version used.</li>
+                    <li><code>connection</code> contains the remote IP (your IP) that was used in the connection.</li>
+                    <li><code>headers</code> contains the headers you submitted.</li>
+                    <li><code>query</code> contains any query parameters you submit.</li>
+                    <li><code>body</code> contains the body payload, both raw and analyzed (if possible).</li>
+                </ul>
+                <pre class="json-beautify">{"http":{"version":"1.1","major":1,"minor":1,"method":"GET"},"connection":{"remoteAddress":"46.249.237.214"},"headers":{"connection":"upgrade","host":"boingfwip.net","accept-encoding":"gzip","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36","dnt":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-language":"en-GB,en;q=0.9,en-US;q=0.8,nb;q=0.7,sv;q=0.6,de;q=0.5","cookie":"__cfduid=d48d496b53f4502872863e0a343ce7cce1561572418"},"query":{},"body":{"raw":null}}</pre>
+
+                <h2 id="tryit">Try It</h2>
+                <p>
+                    <button id="try-it-execute">Call API</button>
+                </p>
+                <pre id="try-it-output" class="json-beautify">
+                    {
+                        "message": "Click the 'Call API' button to try it out!"
+                    }
+                </pre>
+            </article>
+            <nav>
+                <strong>Contents</strong>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#whatswiththename">What's With the Name?</a></li>
+                    <li><a href="#theprocess">The Process</a></li>
+                    <li><a href="#limitations">Limitations</a></li>
+                    <li><a href="#responsebodyexplanation">Response Body Explanation</a></li>
+                    <li><a href="#tryit">Try It</a></li>
+                </ul>
+            </nav>
+        </wrapper>
+
+        <footer>
+            <p>
+                &copy; 2019 Stian Hanger
+            </p>
+            <p>
+                Source code available over at <a href="https://github.com/nagilum/boingfwip">GitHub</a>
+            </p>
+            <p>
+                Website favicon by <a href="http://www.iconarchive.com/artist/iconsmind.html">IconsMind</a>
+            </p>
+        </footer>
+
+        <a href="https://github.com/nagilum/boingfwip" class="fork-me"></a>
+
+        {{ js }}
+    </body>
+</html>
