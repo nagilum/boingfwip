@@ -7,7 +7,7 @@
  * @returns {Object} Compiled JSON object.
  */
 exports.query = (req, res) => {
-    // TODO: Check body size and 413 if exceeded!
+    let maxBodySize = 1024 * 10;
 
     let origin = req.headers['origin']
         ? req.headers['origin']
@@ -35,12 +35,27 @@ exports.query = (req, res) => {
     let headers = {};
 
     for (let key in req.headers) {
+        // Check for max body size.
+        if (key === 'content-length') {
+            let cl = parseInt(req.headers[key], 10);
+
+            if (cl > maxBodySize) {
+                res
+                    .status(413)
+                    .end();
+
+                return;
+            }
+        }
+
+        // Should we exclude this header?
         if (excludeHeaders.includes(key)) {
             continue;
         }
 
         let skip = false;
 
+        // Are there any exclude-headers that have wildcards?
         excludeHeaders.forEach((eh) => {
             if (skip) {
                 return;
@@ -61,6 +76,7 @@ exports.query = (req, res) => {
             continue;
         }
 
+        // Include the header.
         headers[key] = req.headers[key];
     }
 
@@ -73,6 +89,7 @@ exports.query = (req, res) => {
                 minor: req.httpVersionMinor
             },
             method: req.method,
+            path: req.path,
             ip: req.headers['x-forwarded-for'] ||
                 req.connection.remoteAddress
         },
@@ -111,6 +128,15 @@ exports.query = (req, res) => {
             obj.body = {
                 raw: req.rawBody.toString()
             };
+
+            // Check max body size.
+            if (obj.body.raw.length > maxBodySize) {
+                res
+                    .status(413)
+                    .end();
+
+                return;
+            }
     
             let ct = req.headers['content-type'],
                 boundary;
